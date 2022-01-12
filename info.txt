@@ -1,0 +1,71 @@
+JSX : es una manera de escribir JS con otra sintaxis.
+
+- crear etiqueta p
+const p = document.createElement('p');
+p.innerText = 'Hola Mundo'
+
+ahora con Babbel podemos hacer esto:
+<p></p> --> esto NO ES HTML, está en un archivo de JS y es sintaxis de JS que podemos crear gracias al entorno en el que estamos trabajando.
+(esto es JSX)
+
+si yo tuviera una app() {...}
+con JSX podemos llamarla asi
+<app/> || <app></app>
+
+Hooks: son funciones. No pueden estar el condicionales, ciclos, en el retorno o fuera de un componente. UseState y useEffect son Hooks.
+
+Props: datos que se pasan a los componentes y llegan en forma de objeto.
+
+useState: es un hook de estado. Nos da un estadp y una f! de cambio.
+
+useEffect: es un hook que se ejecuta por default despues de cada render.
+Tiene dos parametros: el primero es una funcion y el segundo (que puede estar explicito o no) es un array
+
+
+
+const arr = [1, 2, 3]
+
+
+
+
+class App extends Component {
+    constructor () {}
+    render() {}
+    componentDidMount(){}: hace algo despues de que el componente se monte, o sea despues de que se dibuje pero no despues de cada actualizacion, una única vez cuando el componente entro en pantalla. Pedidos a bases de datos, archivos, api res
+    componentDidUpdate(){}: hace algo cuando el componente se actualice pero no la primera vez que se dibuja.
+    shouldComponentUpdate(){}
+    componentWillUnmount(){}: hace algo justo antes de que el componente se desdibuje. se hace poniendo un return con la funcion que queremos detener en el useEffect
+}
+
+setTimeOut(f!, delay en ms).
+
+Promises: objectos que sirven para saber si algo se ejecutó, se está ejecutando o ha terminado de ejecutarse.
+const promesa = new Promise((res, rej)?=>{
+res([1,2,3])
+})
+promesa.then(callback){ --> si sale bien
+*Intermedio de validacion y transformación para fetch:
+    Response.json () --> pasa todo a json
+    Response.text () --> pasa todo a text o html
+    Response.blob () --> pasa todo a archivo, imagen, video todo eso
+    Response.arrayBuffer () --> pasa todo a array
+    *usamos lo que nos convenga
+}
+promesa.catch(callback) --> si sale mal
+toma un callback con dos parametros que son funciones.
+promesa.finally(...) --> va despues del catch o then (?) se usa en fetch
+
+res y rej sirven para cambiar el estado. res for resolved/fulfilled, rej for rejected. Sirven para setear un resultado.
+
+
+API: programa intermedio entre dos entidades que quieren comunicarse.
+API web: Lee javascript y lo traduce a browser.
+API rest: una maquina hace cosas y por cada cosa te da una URL que despues podes usar en otra maquina para obtener informacion. Intercambia Json
+API soap: usa XML y la manera de pasar info es mas protocolar y da mas confianza. No se suelen necesitar, son mas complejas y mas viejas.
+
+AJAX: async JS and XML. suele usar API rest. 
+Axios: librerias para hacer peticiones AJAX. funciona en base a promesas.
+XMLHttpRequest (XHR) : es una API WEB y funciona para hacer peticiones ajax con eventos.
+
+Fetch: es una API web y funciona para hacer peticiones ajax con prommise.
+
