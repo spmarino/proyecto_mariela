@@ -12,8 +12,15 @@ const CartProvider = ({children}) => {
 
 
     const addProduct = (item, cantidad) => {
-        setCart([...cart, {item, cantidad}])
-        console.log(cart)
+    
+
+        const index = cart.findIndex((i) => i.item.id === item.id);
+        if (index > -1) {
+            cart.splice(index, 1);
+            setCart([...cart, {item, cantidad}])
+        } else {
+            setCart([...cart, {item, cantidad}])
+        }
     };
 
     const deleteProduct = (id) => {
@@ -30,7 +37,8 @@ const CartProvider = ({children}) => {
     };
 
     return (
-        <Context.Provider value={{  cart, 
+        <Context.Provider value={{
+            cart, 
             precio_total, 
             cantidad_total,
             addProduct,
